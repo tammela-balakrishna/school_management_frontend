@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">School Management</div>
+        <ul>
+            <li><a href="#" onclick="showSection('students')">Students</a></li>
+            <li><a href="#" onclick="showSection('teachers')">Teachers</a></li>
+            <li><a href="#" onclick="showSection('classes')">Classes</a></li>
+        </ul>
+    </nav>
+    <!-- Students Section -->
+    <div class="container section" id="studentsSection">
+        <h2>Students Management</h2>
+        <form id="studentForm" enctype="multipart/form-data">
+            <input type="file" id="studentImage" placeholder="image" accept="image/*" required>       
+            <input type="text" id="studentName" placeholder="Enter Name" required>
+            <input type="number" id="studentAge" placeholder="Enter Age" required>
+            <input type="text" id="studentClass" placeholder="Enter Class" required>
+            <button type="submit">Add Student</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Class</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="studentsTableBody"></tbody>
+        </table>
+    </div>
+    <!-- Teachers Section -->
+    <div class="container section" id="teachersSection">
+        <h2>Teachers Management</h2>
+        <form id="teacherForm" enctype="multipart/form-data">
+            <input type="file" id="teacherImage" placeholder="image" accept="image/*" required>
+           
+            <input type="text" id="teacherName" placeholder="Enter Name" required>
+            <input type="text" id="teacherSubject" placeholder="Enter Subject" required>
+            <button type="submit">Add Teacher</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    
+                    <th>Subject</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="teachersTableBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Classes Section -->
+    <div class="container section" id="classesSection">
+        <h2>Class Management</h2>
+        <form id="classForm">
+            <input type="text" id="className" placeholder="Enter Class Name" required>
+            <input type="text" id="classStudents" placeholder="no.of students" required>
+            <button type="submit">Add Class</button>
+        </form>
+        <table>
+            <thead>
+                <tr><th>S.NO</th>
+                    <th>Class Name</th>
+                    <th>No.Of Students</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="classesTableBody"></tbody>
+        </table>
+    </div>
+<div>
+   <!-- Edit Form (Hidden by Default) -->
+<div id="editSection" class="container">
+    <h2>Edit Entry</h2>
+    <form id="editForm" enctype="multipart/form-data">
+        <input type="hidden" id="editId">
+        <input type="hidden" id="editType">
+        <!-- Image (Only for Students & Teachers) -->
+        <input type="file" id="editImage" accept="image/*" placeholder="select image">
+        <!-- Student Fields -->
+        <input type="text" id="editStudentName" placeholder="Enter Student Name">
+        <input type="number" id="editStudentAge" placeholder="Enter Age">
+        <input type="text" id="editStudentClass" placeholder="Enter Class">
+        <!-- Teacher Fields -->
+        <input type="text" id="editTeacherName" placeholder="Enter Teacher Name">
+        <input type="text" id="editTeacherSubject" placeholder="Enter Subject">
+        <!-- Class Fields -->
+        <input type="text" id="editClassName" placeholder="Enter Class Name">
+        <input type="number" id="editClassStudents" placeholder="No. of Students">
+        <button type="submit" onclick="updateItem(event)">Save</button>
+        <button type="button" onclick="closeEditForm()">Cancel</button>
+    </form>
+</div>
+    </div>
+    <script src="app.js" ></script>
+</body>
+</html>
