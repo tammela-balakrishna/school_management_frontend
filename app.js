@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function fetchData(type) {
-    fetch(`http://localhost:5000/api/${type}`)
+    fetch(`https://school-management-backend-1-ugbc.onrender.com/api/${type}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch ${type}: ${response.status}`);
@@ -64,7 +64,7 @@ function populateTable(type, data) {
             // Student Management Table (Matching Columns)
             row.innerHTML = `
                 <td>
-                    <img src="${item.image ? `http://localhost:5000${item.image}` : 'http://localhost:5000/default-placeholder.png'}" 
+                    <img src="${item.image ? `https://school-management-backend-1-ugbc.onrender.com${item.image}` : 'https://school-management-backend-1-ugbc.onrender.com/default-placeholder.png'}" 
                          alt="${item.name}" width="50" height="50">
                 </td>
                 <td>${item.id}</td>
@@ -80,7 +80,7 @@ function populateTable(type, data) {
             // Teacher Management Table (Matching Columns)
             row.innerHTML = `
                 <td>
-                    <img src="${item.image ? `http://localhost:5000${item.image}` : 'http://localhost:5000/default-placeholder.png'}" 
+                    <img src="${item.image ? `https://school-management-backend-1-ugbc.onrender.com${item.image}` : 'https://school-management-backend-1-ugbc.onrender.com/default-placeholder.png'}" 
                          alt="${item.name}" width="50" height="50">
                 </td>
                 <td>${item.id}</td>
@@ -106,7 +106,7 @@ function addStudent(event) {
     formData.append("age", document.getElementById("studentAge").value);
     formData.append("className", document.getElementById("studentClass").value);
 
-    fetch("http://localhost:5000/api/students", {
+    fetch("https://school-management-backend-1-ugbc.onrender.com/api/students", {
         method: "POST",
         body: formData
     })
@@ -127,7 +127,7 @@ function addTeacher(event) {
     formData.append("name", document.getElementById("teacherName").value);
     formData.append("subject", document.getElementById("teacherSubject").value);
 
-    fetch("http://localhost:5000/api/teachers", {
+    fetch("https://school-management-backend-1-ugbc.onrender.com/api/teachers", {
         method: "POST",
         body: formData
     })
@@ -148,7 +148,7 @@ function addClass(event) {
 
     console.log("Sending class data:", classStrength);
 
-    fetch("http://localhost:5000/api/classes", {
+    fetch("https://school-management-backend-1-ugbc.onrender.com/api/classes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(classStrength)
@@ -166,7 +166,7 @@ function addClass(event) {
 // Fetch and Edit Item
 let editingId = null; // Store the ID of the item being edited
 function editItem(type, id) {
-    fetch(`http://localhost:5000/api/${type}/${id}`)
+    fetch(`https://school-management-backend-1-ugbc.onrender.com/api/${type}/${id}`)
         .then(response => response.json())
         .then(data => {
             if (!data) {
@@ -250,7 +250,7 @@ function saveEdit(event) {
 
     console.log("Updating:", type, "ID:", editingId, "Data:", formData); // Debugging
 
-    fetch(`http://localhost:5000/api/${type}/${editingId}`, {
+    fetch(`https://school-management-backend-1-ugbc.onrender.com/api/${type}/${editingId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -319,7 +319,7 @@ function updateItem(event) {
 
     console.log("Updating:", type, "ID:", id, "Data:", formData); // Debugging
 
-    fetch(`http://localhost:5000/api/${type}/${id}`, {
+    fetch(`https://school-management-backend-1-ugbc.onrender.com/api/${type}/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
@@ -339,7 +339,7 @@ function updateItem(event) {
 }
 // Delete Item
 function deleteItem(type, id) {
-    fetch(`http://localhost:5000/api/${type}/${id}`, { method: "DELETE" })
+    fetch(`https://school-management-backend-1-ugbc.onrender.com/api/${type}/${id}`, { method: "DELETE" })
     .then(response => {
         if (!response.ok) {
             throw new Error(`Failed to delete ${type}: ${response.statusText}`);
