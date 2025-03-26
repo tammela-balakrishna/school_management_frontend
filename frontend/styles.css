@@ -87,7 +87,7 @@ button {
     transition: 0.3s ease-in-out;
 }
 
-/* Primary Buttons */
+/* Add Student / Teacher / Class Buttons */
 button[type="submit"] {
     background-color: #007bff;
     color: white;
@@ -98,14 +98,14 @@ button[type="submit"]:hover {
 }
 
 /* Edit and Delete Buttons */
-.edit-btn { 
+button:nth-child(1) { /* Edit */
     background-color: #ffc107;
-    color: black; 
+    color: black;
 }
 
-.delete-btn { 
+button:nth-child(2) { /* Delete */
     background-color: #dc3545;
-    color: white; 
+    color: white;
 }
 
 button:hover {
@@ -152,20 +152,13 @@ img {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -55%);
+    transform: translate(-50%, -50%);
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
     z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-#editSection.show {
-    opacity: 1;
-    transform: translate(-50%, -50%);
 }
 
 #editSection h2 {
@@ -201,22 +194,6 @@ img {
 
     #editSection {
         width: 80%;
-    }
-}
-
-/* Responsive Table */
-@media (max-width: 600px) {
-    table, th, td { display: block; }
-    th { display: none; }
-    td {
-        text-align: left;
-        padding-left: 50%;
-        position: relative;
-    }
-    td::before {
-        position: absolute;
-        left: 10px;
-        content: attr(data-label);
-        font-weight: bold;
+        display: none;
     }
 }
